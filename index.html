@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raina's Homepage</title>
+<style>
+:root{
+  --blue:#0969DA; --blue-dark:#0850b3; --blue-light:#e6f0ff;
+  --ink:#1f2a3a; --ink-2:#5a6577; --ink-3:#9aa4b2;
+  --bg:#ffffff; --bg-soft:#f6f8fb; --line:#e6ebf2;
+  --green:#28a745; --shadow:0 1px 3px rgba(20,40,80,.06),0 4px 16px rgba(20,40,80,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:15px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-weight:700;font-size:16px;letter-spacing:.5px}
+.nav-logo span{color:var(--blue)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{font-size:14px;color:var(--ink-2);transition:color .15s}
+.nav-links a:hover{color:var(--blue)}
+.hero{padding:88px 0 64px}
+.hero .tag{display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);color:var(--blue);font-size:13px;font-weight:600;padding:6px 14px;border-radius:20px;margin-bottom:22px}
+.hero h1{font-size:44px;font-weight:800;letter-spacing:-1px;line-height:1.15}
+.hero h1 .accent{color:var(--blue)}
+.hero .sub{font-size:19px;color:var(--ink-2);margin-top:14px;font-weight:500}
+.hero .desc{font-size:15px;color:var(--ink-2);margin-top:18px;max-width:640px}
+.hero .cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:9px;font-size:14px;font-weight:600;transition:all .15s;cursor:pointer}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-dark)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.hero .meta{display:flex;gap:22px;margin-top:26px;font-size:13px;color:var(--ink-3);flex-wrap:wrap}
+.hero .meta b{color:var(--ink-2);font-weight:600}
+.section{padding:60px 0}
+.section-head{margin-bottom:32px}
+.section-title{font-size:26px;font-weight:800;letter-spacing:-.5px}
+.section-title .dot{color:var(--blue)}
+.section-sub{font-size:14px;color:var(--ink-3);margin-top:6px}
+.about p{color:var(--ink-2);font-size:15px;max-width:760px}
+.about .hl{color:var(--ink);font-weight:600}
+.hl-blue{color:var(--blue);font-weight:600}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.skill-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(20,40,80,.1)}
+.skill-card .ico{font-size:22px;margin-bottom:12px}
+.skill-card h3{font-size:16px;font-weight:700;margin-bottom:10px}
+.skill-card p{font-size:13.5px;color:var(--ink-2);line-height:1.7}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.project-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.project-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(20,40,80,.1)}
+.project-card .p-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.project-card h3{font-size:16px;font-weight:700;line-height:1.4}
+.project-card .p-badge{flex-shrink:0;font-size:11px;font-weight:600;color:var(--blue);background:var(--blue-light);padding:3px 9px;border-radius:6px;white-space:nowrap}
+.project-card .p-desc{font-size:13px;color:var(--ink-2);line-height:1.65;flex:1}
+.project-card .p-metrics{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+.p-metric{font-size:12px;font-weight:600;color:var(--green);background:#eaf7ef;padding:3px 9px;border-radius:6px}
+.timeline{position:relative;padding-left:26px}
+.timeline::before{content:'';position:absolute;left:7px;top:4px;bottom:4px;width:2px;background:var(--line)}
+.tl-item{position:relative;margin-bottom:30px}
+.tl-item::before{content:'';position:absolute;left:-25px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 1px var(--blue)}
+.tl-item .tl-company{font-size:16px;font-weight:700}
+.tl-item .tl-role{font-size:14px;color:var(--blue);font-weight:600;margin:2px 0 6px}
+.tl-item .tl-time{font-size:12px;color:var(--ink-3)}
+.tl-item .tl-desc{font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.7}
+.edu{display:flex;align-items:center;gap:16px;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.edu .edu-ico{font-size:26px}
+.edu h3{font-size:15px;font-weight:700}
+.edu p{font-size:13px;color:var(--ink-2);margin-top:3px}
+
+/* 生活与兴趣 */
+.motto{background:linear-gradient(135deg,var(--blue-light),#f0f5ff);border:1px solid #b3d1ff;border-radius:12px;padding:22px 24px;margin-bottom:20px}
+.motto .zh{font-size:18px;font-weight:700;color:var(--ink);line-height:1.6}
+.motto .en{font-size:13px;color:var(--ink-2);margin-top:6px}
+.interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.interest-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);transition:transform .15s}
+.interest-card:hover{transform:translateY(-3px)}
+.interest-card .ii{font-size:24px;display:block;margin-bottom:8px}
+.interest-card .it{font-size:14px;font-weight:600}
+.interest-card .id{font-size:12px;color:var(--ink-3);margin-top:3px}
+.interest-ext{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+.ext-card{display:flex;align-items:center;gap:12px;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.ext-card .ei{font-size:22px}
+.ext-card .et{font-size:14px;font-weight:600}
+.ext-card .ed{font-size:12px;color:var(--ink-3);margin-top:2px}
+.footer{background:var(--bg-soft);border-top:1px solid var(--line);padding:56px 0 40px;margin-top:20px}
+.footer h2{font-size:24px;font-weight:800;letter-spacing:-.5px}
+.footer .contact{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap}
+.contact-item{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--ink-2);border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:9px;transition:border-color .15s}
+.contact-item:hover{border-color:var(--blue);color:var(--blue)}
+.contact-item .ci{font-size:15px}
+.footer .copyright{margin-top:32px;font-size:12px;color:var(--ink-3)}
+@media(max-width:820px){
+  .hero h1{font-size:34px}
+  .skills{grid-template-columns:1fr}
+  .projects{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Raina<span>.</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#exp">Experience</a>
+      <a href="#life">Life</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="tag">👋 Hi, welcome to my homepage</div>
+  <h1>Raina · <span class="accent">Product Manager</span></h1>
+  <div class="sub">Turning vague needs into clear, buildable, measurable products</div>
+  <div class="desc">Focused on <span class="hl-blue">B-side operation backends for gaming platforms</span> and <span class="hl-blue">AI product delivery</span>. Built the SMS automation system and VIP user recall system from 0 to 1; used to reading people and breaking down needs with data, and automating repetitive work with AI tools.</div>
+  <div class="cta">
+    <a class="btn btn-primary" href="#projects">View projects ↓</a>
+    <a class="btn btn-ghost" href="#contact">Contact me</a>
+  </div>
+  <div class="meta">
+    <span>📍 <b>Xiamen</b></span>
+    <span>🎓 <b>Xiamen Institute of Technology · IoT Engineering</b></span>
+    <span>💼 <b>Available now</b></span>
+  </div>
+</header>
+
+<section class="section wrap" id="about">
+  <div class="section-head">
+    <div class="section-title"><span class="dot">·</span> About Me</div>
+  </div>
+  <div class="about">
+    <p>I'm Raina, a product manager focused on <span class="hl">B-side operation backends</span> and <span class="hl">AI products</span>. My way of working is simple: <span class="hl-blue">read people and break down needs with data first, then act</span>.</p>
+    <p style="margin-top:12px">I've built private-domain user segmentation and recall, SMS automation, and platform-coin group-buy campaigns, and contributed to AI features for a university student-affairs system. More than "coming up with a feature", I'm good at <span class="hl">standardizing processes and quantifying outcomes</span> — did users come back, what's the ROI, how much did cost drop — all in numbers.</p>
+    <p style="margin-top:12px">I use AI tools heavily: generating interactive HTML prototypes, writing PRDs and manuals, and building automation workflows. I believe <span class="hl-blue">product sense &gt; tool proficiency, thinking &gt; experience</span>.</p>
+  </div>
+</section>
+
+<section class="section wrap" id="skills">
+  <div class="section-head">
+    <div class="section-title"><span class="dot">·</span> Skills</div>
+    <div class="section-sub">Product · AI Application · Tools</div>
+  </div>
+  <div class="skills">
+    <div class="skill-card">
+      <div class="ico">📐</div>
+      <h3>Product Skills</h3>
+      <p>Requirements analysis · Competitive research · Prioritization · PRD / flowcharts · High-fidelity interactive prototypes · Modular workflow &amp; user journey mapping (journey / key path / funnel / behavior flow) · Functional testing &amp; bug communication</p>
+    </div>
+    <div class="skill-card">
+      <div class="ico">🤖</div>
+      <h3>AI Product Application</h3>
+      <p>Familiar with LLM application logic (LLM / DeepSeek API · RAG · prompt engineering); generate and debug interactive HTML PRDs with ChatGPT / Claude / Trae; use social media for market research and demand validation, with seed-user research-pool awareness</p>
+    </div>
+    <div class="skill-card">
+      <div class="ico">🧰</div>
+      <h3>Tools &amp; Collaboration</h3>
+      <p>Axure · Figma · Xmind · Office; familiar with requirement / project / document / data-analysis / AI-assisted toolchains; write manuals / FAQs / tutorials and deliver internal or customer training</p>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="projects">
+  <div class="section-head">
+    <div class="section-title"><span class="dot">·</span> Projects</div>
+    <div class="section-sub">A few highlights — more available on request</div>
+  </div>
+  <div class="projects">
+    <div class="project-card">
+      <div class="p-top"><h3>VIP User Data &amp; Recall System</h3><span class="p-badge">Gaming · Backend</span></div>
+      <p class="p-desc">VIP users were maintained by support via WeCom with no data support. Validated the WeCom tag API and built a multi-dimension filtering backend with batch recall loops, plus a birthday recall scenario.</p>
+      <div class="p-metrics"><span class="p-metric">12k+ users</span><span class="p-metric">15% recall</span><span class="p-metric">+9pp MAU</span></div>
+    </div>
+    <div class="project-card">
+      <div class="p-top"><h3>Platform-Coin Group-Buy Recharge</h3><span class="p-badge">App</span></div>
+      <p class="p-desc">Designed a tiered group-buy mechanic with real-time accumulation and tier-based rewards; made the campaign backend configurable so ops can launch campaigns independently.</p>
+      <div class="p-metrics"><span class="p-metric">+35% daily recharge</span><span class="p-metric">+28% revenue</span><span class="p-metric">+9pp retention</span></div>
+    </div>
+    <div class="project-card">
+      <div class="p-top"><h3>SMS Automation System</h3><span class="p-badge">0 → 1</span></div>
+      <p class="p-desc">Designed a "tiering × churn status × identity tag" audience system and rule engine, shipped SMS A/B testing and an ROI dashboard to automate recall.</p>
+      <div class="p-metrics"><span class="p-metric">500k+/mo</span><span class="p-metric">4.2%→7.8% recall</span><span class="p-metric">ROI 3.5</span></div>
+    </div>
+    <div class="project-card">
+      <div class="p-top"><h3>University Student-Affairs System + AI Teaching Platform</h3><span class="p-badge">AI Delivery</span></div>
+      <p class="p-desc">Broke down 10 microservice modules, designed "one-person-one-profile" aggregation and 3-level BI drill-down, and delivered four AI capabilities: LLM Q&amp;A, AI question generation, academic early-warning, and learning analytics.</p>
+      <div class="p-metrics"><span class="p-metric">40%→92% online rate</span><span class="p-metric">2h→10min question sets</span><span class="p-metric">20k+ students covered</span></div>
+    </div>
+    <div class="project-card">
+      <div class="p-top"><h3>E-Certificate System</h3><span class="p-badge">Dual-end</span></div>
+      <p class="p-desc">Teacher side auto-generates e-certificates with unique IDs; student side queries and downloads. The ID enables verification and archiving.</p>
+      <div class="p-metrics"><span class="p-metric">5min→10s</span><span class="p-metric">30× faster</span><span class="p-metric">-70% cost</span></div>
+    </div>
+    <div class="project-card">
+      <div class="p-top"><h3>Mini-Program Check-In System</h3><span class="p-badge">1k+ Concurrent</span></div>
+      <p class="p-desc">Guest accounts pre-imported + login-to-check-in, supporting thousands of concurrent users; admin side tracks attendance in real time, eliminating proxy sign-ins.</p>
+      <div class="p-metrics"><span class="p-metric">1000+ concurrent</span><span class="p-metric">40min→8min</span><span class="p-metric">0 proxy sign-ins</span></div>
+    </div>
+    <div class="project-card">
+      <div class="p-top"><h3>Obstetrics Virtual Simulation Teaching</h3><span class="p-badge">Testing</span></div>
+      <p class="p-desc">Designed test cases from the syllabus and tracked defect closure; produced animation spec docs defining motion logic for core scenarios.</p>
+      <div class="p-metrics"><span class="p-metric">80+ bugs</span><span class="p-metric">100% fixed</span><span class="p-metric">-30% rework</span></div>
+    </div>
+    <div class="project-card">
+      <div class="p-top"><h3>AI-Assisted Job Search System</h3><span class="p-badge">HarmonyOS · Competition</span></div>
+      <p class="p-desc">Built a student-university-enterprise three-sided platform with AI resume parsing, human-job matching, and a capability report, on an edge-cloud architecture.</p>
+      <div class="p-metrics"><span class="p-metric">92% resume parsing</span><span class="p-metric">78% match hit rate</span><span class="p-metric">3-end demo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="exp">
+  <div class="section-head">
+    <div class="section-title"><span class="dot">·</span> Experience</div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-company">Xiamen Sanqisan Network Technology</div>
+      <div class="tl-role">Product Assistant</div>
+      <div class="tl-time">2026.06 — 2026.11</div>
+      <div class="tl-desc">Owned the game-box App iteration and its B-side operation backend, independently handling requirement clarification, prototypes, and PRDs, and driving UI, dev, and QA through launch; covered both C-end App and B-end backend; used AI tools to build a Gantt-style scheduling mini-app and iterated the B-end operation manual.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-company">Fujian Heneng Ruichuang Digital Technology</div>
+      <div class="tl-role">Product Assistant</div>
+      <div class="tl-time">2025.11 — 2026.06</div>
+      <div class="tl-desc">Interfaced with B-end clients, delivered prototypes and PRDs, and followed requirements end-to-end; contributed to AI features for a SaaS teaching-assistant platform (AI Q&amp;A, subject question generation, AI quizzes), proposing iteration and UX improvements from a user perspective.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-company">Fujian Guimi Technology</div>
+      <div class="tl-role">User Operations</div>
+      <div class="tl-time">2022.05 — 2023.03</div>
+      <div class="tl-desc">Handled Pinduoduo store operations — product listing, info maintenance, inventory reconciliation — and monitored traffic data to support platform campaigns.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="edu">
+  <div class="section-head">
+    <div class="section-title"><span class="dot">·</span> Education</div>
+  </div>
+  <div class="edu">
+    <div class="edu-ico">🎓</div>
+    <div>
+      <h3>Xiamen Institute of Technology · IoT Engineering</h3>
+      <p>Full-time bachelor · Class of 2026 · Provincial first prize in the Sanchuang Competition, national semifinalist in Huawei Developer Competition, provincial third in Huawei ICT Competition</p>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="life">
+  <div class="section-head">
+    <div class="section-title"><span class="dot">·</span> Life &amp; Interests</div>
+    <div class="section-sub">Things I love outside of work</div>
+  </div>
+  <div class="motto">
+    <div class="zh">「想法会自动浮现，事实需要主动看见。」</div>
+    <div class="en">"Ideas surface on their own; facts must be actively seen."</div>
+  </div>
+  <div class="interest-grid">
+    <div class="interest-card"><span class="ii">🏊</span><div class="it">Swimming</div><div class="id">游泳</div></div>
+    <div class="interest-card"><span class="ii">🎬</span><div class="it">Documentaries</div><div class="id">Clarkson's Farm · The First Meal</div></div>
+    <div class="interest-card"><span class="ii">🦜</span><div class="it">Pet lovebirds</div><div class="id">2 peach-faced lovebirds</div></div>
+    <div class="interest-card"><span class="ii">🍜</span><div class="it">Food hunting</div><div class="id">寻找美食</div></div>
+    <div class="interest-card"><span class="ii">💪</span><div class="it">Weekly fitness</div><div class="id">每周健身</div></div>
+  </div>
+  <div class="interest-ext">
+    <div class="ext-card"><span class="ei">🤖</span><div><div class="et">Currently learning</div><div class="ed">AI agents</div></div></div>
+    <div class="ext-card"><span class="ei">🦜</span><div><div class="et">Personal project</div><div class="ed">A hand-drawn science site about parrot food</div></div></div>
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact">
+      <a class="contact-item" href="mailto:qin_1280@163.com"><span class="ci">✉️</span> qin_1280@163.com</a>
+      <a class="contact-item" href="https://github.com/Cloud-Amble" target="_blank"><span class="ci">🐙</span> github.com/Cloud-Amble</a>
+      <span class="contact-item"><span class="ci">📍</span> Xiamen</span>
+    </div>
+    <div class="copyright">© 2026 Raina · Shipping products faster with AI</div>
+  </div>
+</footer>
+
+</body>
+</html>
